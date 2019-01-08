@@ -1,0 +1,124 @@
+/*
+ *
+ * This file is part of ARL CrowdTree and is subject to the following:
+ * 
+ * Copyright 2018 United States Government and Nhien Phan
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *   
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *  
+ */
+
+#toc {
+	width: 300px;
+	background: #f0f0f0;
+	position: absolute;
+	top: 98px;
+	left: 0;
+	bottom: 0;
+	overflow: auto;
+	padding: 10px 10px 10px 10px;
+}
+
+#guidecontents {
+	width: 691px;
+	float: right;
+	height: 563px;
+	overflow: auto;
+}
+
+#tabs {
+	margin-top: 15px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border: 0px;
+	bottom: 0;
+}
+
+#searchform {
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+}
+
+#newwindow {
+	cursor: pointer;
+}
+
+.nav-tabs {
+	border-bottom: 0;
+	padding: 0px;
+}
+
+.nav-tabs > li a {
+	background: #505050;
+	color: #999;
+}
+
+.nav-tabs > li.active a {
+	background: #f0f0f0;
+	color: #333;
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
+
+ol > li {
+  display: table;
+  counter-increment: item;
+  margin-bottom: 0.6em;
+}
+
+ol > li:before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.6em;    
+}
+
+li ol > li {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+li ol > li:before {
+  content: counters(item, ".") " ";
+  min-width: 37px;
+}
+
+.row {
+	margin: 10px;
+}
+
+.example {
+	text-align: center;
+}
+
+.extable {
+   display: inline-block;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   border-radius: 4px;
+   margin: .3rem;
+}
+
+.extable td {
+   text-align: center;
+   padding: .3rem;
+}
+
+.extable g.node {
+	cursor: auto;
+}

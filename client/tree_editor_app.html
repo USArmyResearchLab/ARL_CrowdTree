@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<!--  
+  This file is part of ARL CrowdTree and is subject to the following:
+  
+  Copyright 2018 United States Government and Nhien Phan
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+    
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.  
+-->   
+ 
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="css/dtree_svg.css" rel="stylesheet" type="text/css" />
+	<link href="css/guidelines.css" rel="stylesheet" type="text/css" />
+	<link href="css/tree_editor_app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<!-- top bar (holds sentence display) -->
+	<div id="div_topbar">
+		<p id="p_sentence" />
+	</div>
+
+	<!--  Sentence ID holder -->
+	<div id="div_sid_holder">
+		<button id="btn_sid" class="btn btn-default disabled" type="button"></button>
+	</div>
+
+	<!-- Button group for tree functions -->
+	<div id="div_tree_btns">
+		<div class="btn-group-vertical" role="group" aria-label="...">
+			<button id="btn_recenter" class="btn btn-primary" type="button">Reset View</button>
+			<button id="btn_flatten" class="btn btn-primary" type="button">Reset Tree</button>
+			<button id="btn_showguide" class="btn btn-primary" type="button">Show Instructions</button>
+		</div>
+	</div>
+
+	<!--  Comment area and submit button -->
+	<div id="div_comments">
+		<form id="f_main" method="post">
+			<div class="form-group">
+				<label for="notes">Comments (optional):</label>
+				<textarea id="notes" class="form-control" rows="3"></textarea>
+			</div>
+
+			<input type="hidden" id="assignmentId" name="assignmentId">
+			<input type="hidden" id="submissionJson" name="submissionJson">
+			<input type="hidden" id="workerId" name="workerId"> 
+			<input type="hidden" id="hitId" name="hitId">
+		</form>
+		<button id="btn_submit" disabled class="btn btn-primary btn-lg"
+			data-toggle="tooltip" data-placement="top">Submit HIT</button>
+		<div id="selected_node" style="background: rgba(255,255,255,.5)">
+		</div>
+		
+	</div>
+	
+	<!-- help menu (initially hidden; populated by JavaScript) -->
+	<div id="div_help" class="ui-widget-content"></div>
+
+	<!--  SVG for the dependency tree -->
+	<svg id="svg_tree" class="dtree" />
+
+	<!-- modal to edit arc labels -->
+	
+	<div id="dep-container" class="menu-container ui-widget-content">
+		<ul id="dep-menu" class="menu">	
+		</ul>
+	</div>
+
+	<div id="pos-container" class="menu-container ui-widget-content">
+		<ul id="pos-menu" class="menu">	
+		</ul>
+	</div>
+
+	
+	<!-- introductory modal for MTurk HIT Preview Mode -->
+	<div id="intro" class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="modal-title">Introduction (HIT preview mode)</div>
+			</div>
+			<div class="modal-body">
+				<p>
+					Welcome! The goal of this task is to create/correct a grammar tree
+					for the given sentence. You can view the detailed annotation
+					instructions for how the trees should look by clicking on the <b>Show
+						Instructions</b> button in the upper left.
+				</p>
+
+				<p>
+					<i>We are not expecting you to be a grammar expert to work on
+						these HITs.</i>
+				</p>
+
+				<p>If you realize after a bit that you've been making certain
+					mistakes, don't worry. Just continue forward with your improved
+					understanding.</p>
+
+				<p>This introduction window will disappear after you accept the
+					HIT.</p>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+
+	<!-- <script type='text/javascript' src='js/jquery-3.2.1.min.js'></script>
+	<script type='text/javascript' src='js/jquery-ui-1.12.1.min.js'></script>-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js'></script>
+	<script type='text/javascript' src='https://d3js.org/d3-selection-multi.v1.min.js'></script>
+	<!-- <script type='text/javascript' src='js/d3.v4.min.js'></script>-->
+	
+	<!-- Bootstrap tooltip functionality -->
+	<!-- <script type='text/javascript' src='js/tooltip.js'></script>-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<script type='text/javascript' src='js/dtree-svg.js'></script>
+	<script type='text/javascript' src='js/generic_dep_labels.js'></script>
+	<script type='text/javascript' src='js/ptb_pos_labels.js'></script>
+	<script type='text/javascript' src='js/tree_editor_app.js'></script>
+</body>
+
+</html>

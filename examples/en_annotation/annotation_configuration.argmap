@@ -1,0 +1,75 @@
+########BEGIN VARIABLES########
+->+TRAINING_INSTANCES java.util.Vector
+
+->+STATE_FACTORY arl.nlp.parse.transition.DefaultParseFactory
+--KeepPos true
+--KeepParse false
+--KeepLemma false
+--KeepLexRoot true
+--KeepAffixes false
+--KeepGloss true
+--KeepClitics true
+--KeepResumptive false
+
+########END VARIABLES########
+
+
+
+########BEGIN COMMON MODULE########
+-+CommonModule arl.nlp.crowdling.TreeEditorCommonModule
+#LogFile specifies the location of the main output log file
+--LogFile /path/to/use/for/output/arl_crowdtree__log.txt
+#TrainOnLatestSubmissionsOnly (relevant to parser training, which isn't included in this release)
+--TrainOnLatestSubmissionsOnly false
+#AnnotationRecorder specifies the class that'll be used to record things
+--+AnnotationRecorder arl.nlp.parse.io.CoNLLUParseWriter
+#Output specifies the location where dependency trees will be recorded
+---Output /path/to/use/for/output/arl_crowdtree__parsetrees.conllu
+#Autoflush controls whether the AnnotationRecorder will autoflush
+---Autoflush true
+#Append (if you don't want to accidentally overwrite an existing file, set Append=true)
+---Append true
+
+
+#The sentences to annotate
+--+InstancesForAnnotation arl.common.types.InitializableStateList
+#DataFiles specifies the file(s) with the sentences to annotate
+---DataFiles /path/to/installation/examples/en_annotation/en_example_sentences.conllu
+#StateFactory specifies some transforms to be applied to the read data 
+---^StateFactory STATE_FACTORY
+#InstanceReader specifies the code for reading in the sentences & creating parse objects for them
+---+InstanceReader arl.nlp.parse.io.CoNLLUParseReader
+#---+InstanceReader arl.nlp.parse.io.OneSentencePerLineParseReader
+
+#The Vector of sentences that'll be used by the parser trainer (if there were one)
+--^TrainingInstances TRAINING_INSTANCES
+
+########END COMMON MODULE########
+
+
+
+########BEGIN GET_MODULE; defines doGet(...) behavior########
+-+GetModule	arl.nlp.crowdling.TreeEditorGetModule
+#Controls whether the last human-provided annotation for a given sentence should be returned if the sentence is requested again 
+--ProvideLatestHuAnnotation false
+#Probability of asking the parser for output (not available in current version of code)
+--Autoparse 0
+#Number of training examples required prior to providing parser output (not available in current version of code)
+--MinTrainingExamples 0
+#FlatTrees controls whether the trees provided to the frontend will have all the nodes attached to the root
+--FlatTrees true
+#TextDirection specifies left-to-right (ltr) or right-to-left (rtl) reading order  
+--TextDirection ltr
+#PunctuationFilter controls which tokens, if any, are treated as punctuation (hidden from tree view)
+--+PunctuationFilter arl.nlp.crowdling.DefaultPunctuationFilter
+########END GET_MODULE########
+
+
+
+########BEGIN POST MODULE; defines doPost(...) behavior of the servlet########
+-+PostModule arl.nlp.crowdling.TreeEditorPostModule
+#ReinsertPunctuation controls whether tokens excluded by the punctuation filter (see the GetModule) will be reinserted into the parse object 
+--ReinsertPunctuation true
+#PunctuationHeuristic (if specified) is for attaching punctuation using heuristics
+--+PunctuationHeuristic arl.nlp.punctuation.DefaultPunctuationAttachmentHeuristic
+########END POST MODULE########

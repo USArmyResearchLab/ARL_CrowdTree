@@ -1,0 +1,65 @@
+<project name="ARL CrowdTree example" basedir="../.." default="deployWarFile">
+	
+	<!-- Location of Apache Tomcat webapps directory -->
+	<property name="WEBAPP_DIR" location="/path/to/apache_tomcat/webapps"/>
+	
+	<!-- Library directory -->
+	<property name="LIB" location="lib" />
+	<!-- Source code directory -->
+	<property name="SRC" location="src" />
+	
+	<!-- Temporary directory -->
+	<property name="TMP" location="tmp_war" />
+	
+	<!-- Directory to place the .war file -->
+	<property name="WAR_DIR" value="war" />
+	<!-- .war file name -->
+	<property name="WAR_FILENAME" value="arlcrowdtree.war" />
+	
+	<!-- web.xml file to bundle in .war -->
+	<property name="WEB_XML_FILE" value="examples/en_annotation/web.xml"/>
+	
+	<!-- This target creates a .war-->
+	<target name="makeWarFile">
+		<delete dir="${TMP}" />
+		<mkdir dir="${TMP}" />
+		<delete dir="${TMP}/classes"/>
+		<mkdir dir="${TMP}/classes"/>
+		<delete dir="${TMP}/lib"/>
+		<mkdir dir="${TMP}/lib"/>
+		
+		<mkdir dir="${WAR_DIR}" />
+		
+		<javac srcdir="${SRC}" destdir="${TMP}/classes" debug="on">
+			<classpath>
+				<fileset dir="${LIB}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+		
+		<!-- Copy all the .jars into one directory (in case they are in subdirectories) -->
+		<copy todir="${TMP}/lib" flatten="true">
+		    <fileset dir="${LIB}">
+		        <include name="**/**/*.jar"/>
+		    </fileset>
+		</copy>
+		
+		<!-- Create .war -->
+		<war destfile="${WAR_DIR}/${WAR_FILENAME}" webxml="${WEB_XML_FILE}">
+			<lib dir="${TMP}/lib"/>
+			<classes dir="${TMP}/classes"/>
+			<fileset dir="client">
+				<include name="**/*"/>
+			</fileset>
+		</war>
+		
+		<!-- Delete the temporary directory -->
+		<delete dir="${TMP}/lib"/>
+	</target>
+	
+	<target name="deployWarFile" depends="makeWarFile">
+		<copyfile src="${WAR_DIR}/${WAR_FILENAME}" dest="${WEBAPP_DIR}/${WAR_FILENAME}"/>
+	</target>
+	
+</project>

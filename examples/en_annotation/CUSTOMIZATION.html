@@ -1,0 +1,81 @@
+<h2> Customization </h2>
+
+<h3> 1.0 Servlet options </h3>
+
+<h4> 1.1 File format </h4>
+
+The example is set up to read and write in CoNLL-U format.
+
+The code for reading in the input file(s) is specified by the following line of <i>examples/en_annotation/annotation_configuration.argmap</i>
+<div style="border: 1px solid #999999; margin: 8px;"><pre>---+InstanceReader arl.nlp.parse.io.CoNLLUParseReader</pre></div>
+
+Similarly, the code for writing out the annotation results in specified by this line
+	<div style="border: 1px solid #999999; margin: 8px;"><pre>--+AnnotationRecorder arl.nlp.parse.io.CoNLLUParseWriter</pre></div>
+
+<h4> 1.2 Punctuation filtering and attachment </h4>
+
+Depending on your use case, it may or may not be desirable to have annotators spend their time annotating punctuation.
+
+To mark certain tokens as punctuation (NOTE: punctuation is filtered from the tree view, although it still appears in the sentence at the top of the frontend), it is possible to specify a punctuation filter. Below is the relevant line of <i>examples/en_annotation/annotation_configuration.argmap</i>
+	<div style="border: 1px solid #999999; margin: 8px;"><pre>--+PunctuationFilter arl.nlp.crowdling.DefaultPunctuationFilter</pre></div>
+
+If punctuation is filtered from annotation, it may be desirable to attach it using a heuristic once annotation is complete. Such an attachment heuristic can be specified by editing the following line of <i>examples/en_annotation/annotation_configuration.argmap</i>
+	<div style="border: 1px solid #999999; margin: 8px;"><pre>--+PunctuationHeuristic arl.nlp.punctuation.DefaultPunctuationAttachmentHeuristic</pre></div>
+
+<h4> 1.3 Text direction </h4>
+
+If you are working with a script that reads right-to-left instead of left-to-right (Arabic script, for example), change the following line in <i>examples/en_annotation/annotation_configuration.argmap</i> from
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre>--TextDirection ltr</pre></div>
+
+to
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre>--TextDirection rtl</pre></div>
+
+<h4> 1.4 Initial tree structure </h4>
+
+The example is configured so that all nodes will initially be attached to the root node. If you would prefer that the trees specified in the input file are not 'flattened' in this manner but are instead shown in their original state, change the following line in <i>examples/en_annotation/annotation_configuration.argmap</i> from
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre>--FlatTrees true</pre></div>
+
+to
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre>--FlatTrees false</pre></div>
+
+<h3> 2.0 Client-side options </h3>
+
+<h4> 2.1 Dependency labels </h4>
+
+<h4> 2.1.1 Enabling/disabling dependency label visibility </h4>
+
+To control whether the dependency labels are visible or not,
+	look in <i>client/js/tree_editor_app.js</i> for the line with <div style="border: 1px solid #999999; margin: 8px;"><pre>.setShowDep</pre></div> and set it to <div style="border: 1px solid #999999; margin: 8px;"><pre>.setShowDep(true)</pre></div> or <div style="border: 1px solid #999999; margin: 8px;"><pre>.setShowDep(false)</pre></div> respectively.
+
+<h4> 2.1.2 Enabling/disabling dependency label editing </h4>
+	
+To disable editing of the dependency labels,
+	look in <i>client/js/tree_editor_app.js</i> for the call to <div style="border: 1px solid #999999; margin: 8px;"><pre>.setDepClickCallback(...)</pre></div> and comment it out.
+	
+<h4> 2.1.3 Customizing the dependency label set </h4>
+
+To customize the available dependency labels, look in <i>client/js/tree_editor_app.js</i> for the line <div style="border: 1px solid #999999; margin: 8px;"><pre>&lt;script type='text/javascript' src='js/generic_dep_labels.js'&gt;&lt;/script&gt;</pre></div> and update it appropriately.
+
+<h4> 2.2 Part-of-speech (POS) labels </h4>
+
+<h4> 2.2.1 Enabling/disabling POS visibility  </h4>
+
+To control whether the part-of-speech tags are visible or not,
+	Look in <i>client/js/tree_editor_app.js</i> for the line with <div style="border: 1px solid #999999; margin: 8px;"><pre>.setShowPos</pre></div> and set it to <div style="border: 1px solid #999999; margin: 8px;"><pre>.setShowPos(true)</pre></div> or <div style="border: 1px solid #999999; margin: 8px;"><pre>.setShowPos(false)</pre></div>
+	
+<h4> 2.2.2 Enabling/disabling POS visibility </h4>
+
+To disable editing of the dependency labels,
+	look in <i>client/js/tree_editor_app.js</i> for the call to <div style="border: 1px solid #999999; margin: 8px;"><pre>.setPosClickCallback(...)</pre></div> and comment it out.
+	
+<h4> 2.2.3 Customizing the dependency label set </h4>
+
+To customize the available dependency labels, look in <i>client/js/tree_editor_app.js</i> for the line <div style="border: 1px solid #999999; margin: 8px;"><pre>&lt;script type='text/javascript' src='js/generic_dep_labels.js'&gt;&lt;/script&gt;</pre></div> and update it appropriately.	
+
+<h3> 3.0 Guidelines </h3>
+
+The annotation guidelines provided in this project may not be appropriate for your annotation project. As such, you will likely wish to replace <i>client/guidelines.html</i> and possibly <i>client/js/guidelines.js</i> with your own custom guidelines.

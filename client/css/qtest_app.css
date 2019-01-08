@@ -1,0 +1,122 @@
+/*
+ *
+ * This file is part of ARL CrowdTree and is subject to the following:
+ * 
+ * Copyright 2018 United States Government and Nhien Phan
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *   
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *  
+ */
+
+#leftbar {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	padding-top: 1.8%;
+	padding-left: 1.5%;
+	padding-right: 2%;
+	padding-bottom: 30;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	overflow-y: scroll;
+	z-index: 2;
+	width:450px;
+	background: rgba(255,255,255,0.9);
+}
+
+#leftbar g.node {
+	cursor: default;
+}
+
+#div_topbar {
+	z-index: 5;
+    margin-left: 480px;
+	height: auto;
+    min-height: 65px;
+    background-color: rgba(255,255,255,.9);
+}
+
+#p_sentence {
+    font-size: 18px;
+    padding: 5px 20px;
+    text-align: center;
+}
+
+#treesvg {
+    z-index: -1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.pagination {
+	position: fixed;
+	right: 15px;
+	bottom: 0;
+	margin-left: 15px;
+	
+	z-index: 4;
+}
+
+.pagination-lg > li > a {
+ 	padding-top: 0px;
+ 	padding-bottom: 0px;
+ 	padding-left: 4px;
+ 	padding-right: 4px;
+ 	border: 2px;
+}
+.extable {
+   margin: auto;
+   left: 0;
+   right: 0;
+   margin-top: 30px;
+}
+
+#buttons {
+	margin-left: 480px;
+}
+
+#notesdiv {
+	float: right;
+	margin: 11px;
+	width: 250px;
+	z-index: 3;
+}
+
+#submitbutton {
+	display: inline-block;
+	padding-right: 4px;
+	padding-left: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	margin-left: 5px;
+	width: auto;
+}
+
+textarea {
+	resize: none;
+}
+
+#recenter {
+	position: fixed;
+	top: 65px;
+	left: 495px;
+}
+
+/* Highly specific rules takes precedence over slightly less specific Bootstrap rules */
+.pagination > li.page > a, .pagination > li.page > a:focus, .pagination > li.active > a:hover, .pagination > li.active > span, .pagination > li.active > span:focus, .pagination > li.active > span:hover {
+    cursor: pointer;
+}
+.pagination > li.page.disabled > a, .pagination > li.page.disabled > a:focus, .pagination > li.page.disabled > a:hover, .pagination > li.page.disabled > span, .pagination > li.page.disabled > span:focus, .pagination > li.page.disabled > span:hover {
+    cursor: not-allowed;
+}

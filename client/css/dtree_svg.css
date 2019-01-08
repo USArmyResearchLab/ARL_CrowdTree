@@ -1,0 +1,135 @@
+/*
+ *
+ * This file is part of ARL CrowdTree and is subject to the following:
+ * 
+ * Copyright 2018 United States Government and Nhien Phan
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *   
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *  
+ */
+
+/* CSS for dependency tree SVGs */
+
+.dtree {
+	background-color: #FFF; 
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.dtree-interactive g.node:hover {
+	font-weight: bold;
+	stroke-width: 2px;
+}
+
+.backRect {
+	/* height and width must be set explicitly on HTML element since they are 'attributes' */
+	fill: white;
+}
+
+.tbx {
+	/* Text box background: nearly opaque background for text in dependency trees */
+	fill: white; 
+	stroke-width: 0px; 
+	opacity: 0.9;
+}
+
+text.dep {
+	fill: #002663;
+}
+
+text.pos {
+	fill: #002663;
+}
+
+circle.nhandle {
+	opacity: 0;
+	stroke-width: 1px;
+	fill: blue;
+}
+
+g.node {
+	cursor: pointer;
+}
+
+g.node text {
+	font-size: 14px;
+}
+
+circle.dropZone {
+	opacity: 0.2;
+	stroke-width: 0px;
+	fill: #66ccff;
+}
+circle.dropZone-highlight {
+	fill: green;
+}
+circle.dropZone-dragging {
+	fill: yellow;
+}
+
+.dropEdge {
+    stroke: blue;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    fill: none;
+}
+
+g.depEdge path {
+	stroke: #505050;
+	stroke-width: 1px;
+	fill: none;
+	cursor: default;
+}
+/* Intended for use with examples */
+g.depEdge-bold path {
+	stroke: #505050;
+	stroke-width: 3px;
+}
+
+g.depEdge text {
+	font-size: 14px;
+	stroke: #000;
+    stroke-width: 1px;
+    fill: black;
+    fill-opacity: 1;
+}
+
+
+/* Mostly in here for use with examples */
+circle.nodeCircle {
+	stroke: black;
+	fill: rgb(255, 244, 0);
+	vector-effect: non-scaling-stroke;
+}
+
+/* Intended for use with examples */
+circle.nodeCircle-bold {
+	stroke-width: 2px;
+	fill: black;
+}
+
+polygon.rootRect {
+	stroke: rgb(0, 0, 0);
+	stroke-width: 1px;
+	fill: rgb(200, 200, 200); 
+	vector-effect: non-scaling-stroke;
+}
+
+rect.rootRect {
+	stroke: rgb(0, 0, 0);
+	stroke-width: 1px;
+	fill: rgb(200, 200, 200); 
+	vector-effect: non-scaling-stroke;
+}

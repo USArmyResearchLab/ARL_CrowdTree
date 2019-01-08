@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!--  
+  This file is part of ARL CrowdTree and is subject to the following:
+  
+  Copyright 2018 United States Government and Nhien Phan
+  
+  Licensed under the Apache License, Version 2.0 (the "License");
+    
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+  
+      http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.  
+-->
+
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link href="css/dtree_svg.css" rel="stylesheet" type="text/css" />
+		<link href="css/qtest_app.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+    	<input id="hiddentree" name="htree" type="hidden" value="Unexpected failure encountered" />
+    	<button id="recenter" class="btn btn-primary" type="button">Reset View</button>
+    	<div id="leftbar"></div>
+		<svg id="treesvg" class="dtree dtree-interactive"></svg>
+
+		<div id="div_topbar"><br/><p id="p_sentence" /></div>
+
+		<form id="qtest_form">
+			<input type="hidden" id="assignmentId" name="assignmentId">
+			<input type="hidden" id="workerId" name="workerId">
+			<input type="hidden" id="hitId" name="hitId">
+			<input type="hidden" id="results" name="results">
+		</form>	
+		<div id="notesdiv" class="form-group">
+			<label for="notes">Comments (optional):</label>
+			<textarea id="notes" name="notes" class="form-control" rows="1"></textarea>
+		</div>
+		<div id="buttons">
+			<nav aria-label="Page navigation">
+				<ul class="pagination pagination-lg">
+					<li>
+						<a id="prevclick" style="cursor:pointer" aria-label="Previous">
+							<span aria-hidden="true">&laquo; Previous</span>
+						</a>
+					</li>
+					<li id="p1" class="page active"><a data-toggle="tooltip" data-placement="top">1</a></li>
+	    			<li id="p2" class="page disabled"><a data-toggle="tooltip" data-placement="top">2</a></li>
+   					<li id="p3" class="page disabled"><a data-toggle="tooltip" data-placement="top">3</a></li>
+	    			<li id="p4" class="page disabled"><a data-toggle="tooltip" data-placement="top">4</a></li>
+   					<li id="p5" class="page disabled"><a data-toggle="tooltip" data-placement="top">5</a></li>
+   					<li id="p6" class="page disabled"><a data-toggle="tooltip" data-placement="top">6</a></li>
+   					<li id="p7" class="page disabled"><a data-toggle="tooltip" data-placement="top">7</a></li>
+   					<li id="p8" class="page disabled"><a data-toggle="tooltip" data-placement="top">8</a></li>
+   					<li id="p9" class="page disabled"><a data-toggle="tooltip" data-placement="top">9</a></li>
+   					<li id="p10" class="page disabled"><a data-toggle="tooltip" data-placement="top">10</a></li>
+    				<li id="p11" class="page disabled"><a data-toggle="tooltip" data-placement="top">11</a></li>
+    				<li id="p12" class="page disabled"><a data-toggle="tooltip" data-placement="top">12</a></li>
+    				<li id="p13" class="page disabled"><a data-toggle="tooltip" data-placement="top">13</a></li>
+    				<li>
+      					<a id="nextclick" style="cursor:pointer" aria-label="Next">
+        					<span aria-hidden="true" ><b><i>Next &raquo;</i></b></span>
+      					</a>
+    				</li>
+    				<li>
+    					<button id="submitbutton" disabled class="btn btn-primary btn-lg btn-block" data-toggle="tooltip" data-placement="top">Submit Test!</button>
+    				</li>
+				</ul>
+			</nav>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	
+		<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js'></script>
+		<script type='text/javascript' src='https://d3js.org/d3-selection-multi.v1.min.js'></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		
+		<script type='text/javascript' src='js/dtree-svg.js'></script>
+		<script type='text/javascript' src='js/qtest_app.js'></script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<h2>ARL CrowdTree example deployment</h2>
+
+This document describes how to deploy the example located in the <i>examples/en_annotation/</i> subdirectory.
+
+Prior to proceeding with the steps below, you should have taken the steps described in the SETUP.md file located in the project level directory.
+
+<h3> Step 1) Install Apache Ant </h3>
+
+This example uses Apache Ant to build the .war file for ARL CrowdTree.
+
+If you do not have a copy of Apache Ant installed, please see https://ant.apache.org/
+
+<h3> Step 2) Set paths </h3>
+
+You will need to set several paths that specify the locations of input and output files. NOTE: Spaces are not permitted in the paths.
+
+In <i>examples/en_annotation/annotation_configuration.argmap</i>, update the following lines appropriately.
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre> #LogFile specifies the location of the main output log file 
+ --LogFile /path/to/use/for/output/arl_crowdtree__log.txt</pre></div>
+ 
+<div style="border: 1px solid #999999; margin: 8px;"><pre> #Output specifies the location where dependency trees will be recorded
+ ---Output /path/to/use/for/output/arl_crowdtree__parsetrees.conllu</pre></div>
+ 
+<div style="border: 1px solid #999999; margin: 8px;"><pre> #DataFiles specifies the file with the sentences to annotate
+ ---DataFiles /path/to/installation/examples/en_annotation/en_example_sentences.conllu</pre></div>
+
+In <i>examples/en_annotation/web.xml</i>, update the following line appropriately.
+<div style="border: 1px solid #999999; margin: 8px;"><pre> &lt;param-value&gt;/path/to/installation/examples/en_annotation/annotation_configuration.argmap&lt;/param-value&gt;</pre></div>
+
+In <i>examples/en_annotation/build.xml</i>, update the following line to point to the location of your Apache Tomcat webapps directory.
+<div style="border: 1px solid #999999; margin: 8px;"><pre> &lt;property name="WEBAPP_DIR" location="/path/to/apache_tomcat/webapps"/&gt;</pre></div>
+
+<h3> Step 3) Create and deploy the .war file </h3>
+
+From within the <i>/examples/en_annotation</i> directory, type the following command
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre> ant deployWarFile</pre></div>
+
+Now start Apache Tomcat. Assuming Apache Tomcat is running locally on port 8080, you can now navigate to the following URL with your internet browser.
+
+<div style="border: 1px solid #999999; margin: 8px;"><pre> http://localhost:8080/arlcrowdtree/tree_editor_app.html?tree=0
+</pre></div>
+
+<h3> Customization</h3>
+
+Some customization options are discussed in <i>examples/en_annotation/CUSTOMIZATION.html</i>

@@ -1,0 +1,54 @@
+1	The	_	DT	DT	_	2	mod	_	_
+2	bear	_	NN	NN	_	3	subj	_	_
+3	went	_	VBD	VBD	_	0	root	_	_
+4	over	_	IN	IN	_	3	mod	_	_
+5	the	_	DT	DT	_	6	mod	_	_
+6	mountain	_	NN	NN	_	4	obj	_	_
+7	.	_	.	.	_	3	other	_	_
+
+1	Sally	_	NNP	NNP	_	2	subj	_	_
+2	sells	_	VBZ	VBZ	_	0	root	_	_
+3	seashells	_	NNS	NNS	_	2	obj	_	_
+4	by	_	IN	IN	_	2	mod	_	_
+5	the	_	DT	DT	_	6	mod	_	_
+6	seashore	_	NN	NN	_	4	obj	_	_
+7	.	_	.	.	_	2	other	_	_
+
+1	My	_	PRP$	PRP$	_	2	mod	_	_
+2	dog	_	NN	NN	_	0	subj	_	_
+3	ate	_	VBD	VBD	_	2	root	_	_
+4	my	_	PRP$	PRP$	_	2	mod	_	_
+5	blue	_	JJ	JJ	_	6	mod	_	_
+6	shirt	_	NN	NN	_	4	obj	_	_
+7	.	_	.	.	_	2	other	_	_
+
+1	My	_	PRP$	PRP$	_	2	mod	_	_
+2	dog	_	NN	NN	_	0	subj	_	_
+3	ate	_	VBD	VBD	_	2	root	_	_
+4	my	_	PRP$	PRP$	_	2	mod	_	_
+5	green	_	JJ	JJ	_	6	mod	_	_
+6	shirt	_	NN	NN	_	4	obj	_	_
+7	.	_	.	.	_	2	other	_	_
+
+1	My	_	PRP$	PRP$	_	2	mod	_	_
+2	dog	_	NN	NN	_	0	subj	_	_
+3	ate	_	VBD	VBD	_	2	root	_	_
+4	my	_	PRP$	PRP$	_	2	mod	_	_
+5	red	_	JJ	JJ	_	6	mod	_	_
+6	shirt	_	NN	NN	_	4	obj	_	_
+7	.	_	.	.	_	2	other	_	_
+
+1	My	_	PRP$	PRP$	_	2	mod	_	_
+2	dog	_	NN	NN	_	0	subj	_	_
+3	ate	_	VBD	VBD	_	2	root	_	_
+4	my	_	PRP$	PRP$	_	2	mod	_	_
+5	orange	_	JJ	JJ	_	6	mod	_	_
+6	shirt	_	NN	NN	_	4	obj	_	_
+7	.	_	.	.	_	2	other	_	_
+
+1	This	_	DT	DT	_	2	subj	_	_
+2	is	_	VBZ	VBZ	_	0	root	_	_
+3	the	_	DT	DT	_	5	mod	_	_
+4	last	_	JJ	JJ	_	5	mod	_	_
+5	example	_	NN	NN	_	2	other	_	_
+6	.	_	.	.	_	2	other	_	_

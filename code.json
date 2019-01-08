@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "agency": "DOD",
+    "measurementType": {
+        "method": "other",
+        "ifOther": "Projects costs are measured in laborHours."
+    },
+    "releases": [
+        {
+            "name": "ARL CrowdTree",
+            "organization": "US Army Research Laboratory",
+            "description": "ARL CrowdTree is an annotation tool for viewing and editing dependency trees.",
+            "tags": [
+                "software"
+            ],
+            "contact": {
+            	"name": "Stephen Tratz",
+                "email": "stephen.c.tratz.civ@mail.mil"
+            },
+            "status": "Alpha",
+            "vcs": "git",
+            "downloadURL": "https://github.com/USArmyResearchLab/ARL_CrowdTree",
+            "repositoryURL": "https://github.com/USArmyResearchLab/ARL_CrowdTree",
+            "homepageURL": "https://github.com/USArmyResearchLab/ARL_CrowdTree",
+            "languages": [
+            	"java",
+            	"javascript"
+            ],
+            "partners": [],
+            "permissions": {
+                "licenses": [
+                    {
+                        "URL": "https://github.com/USArmyResearchLab/ARL_CrowdTree/blob/master/LICENSE.txt",
+                        "name": "Apache 2.0"
+                    }
+                ],
+                "usageType": "openSource",
+                "exemptionText": null
+            },
+            "laborHours": 1000,
+            "version": "1.0.0",
+            "date": {
+                "created": "2018-09-28",
+                "lastModified": "2018-09-28",
+                "metadataLastUpdated": "2018-09-28"
+            },
+            "disclaimerText": "(See license)",
+            "disclaimerURL": "https://github.com/USArmyResearchLab/ARL_CrowdTree/blob/master/LICENSE.txt"
+        }
+    ]
+}

@@ -1,0 +1,103 @@
+/*
+ *
+ * This file is part of ARL CrowdTree and is subject to the following:
+ * 
+ * Copyright 2018 United States Government and Nhien Phan
+ * 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ *   
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *  
+ */
+
+/*
+ * CSS for the standalone version of the guidelines -- that is, the version that gets opened in a new window
+ */
+
+#toc {
+	width: 300px;
+	background: #f0f0f0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	overflow: auto;
+	padding: 0 10px 10px 10px;
+}
+
+.btn-group-justified {
+	margin-top: 5px;
+	width: 266px;
+	position: absolute;
+	z-index: 1;
+}
+
+.hiddennav {
+	height: 56px;
+}
+
+#guidecontents {
+	height: 100%;
+	margin-left: 300px;
+	margin-right: 0;
+	padding: 50px;
+	overflow: auto;
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: item;
+  margin: 0;
+  padding: 0;
+}
+
+ol > li {
+  display: table;
+  counter-increment: item;
+  margin-bottom: 0.6em;
+}
+
+ol > li:before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.6em;    
+}
+
+li ol > li {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+li ol > li:before {
+  content: counters(item, ".") " ";
+  min-width: 37px;
+}
+
+.row {
+	margin: 10px;
+}
+
+.example {
+	text-align: center;
+}
+
+.extable {
+   display: inline-block;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+   border-radius: 4px;
+   margin: 1rem;
+}
+
+.extable td {
+   text-align: center;
+   padding: 1rem;
+}
